@@ -23,5 +23,7 @@
     (terminate "hi") => "hi")
   (fact "maps across sequences"
     (terminate ["hi" (fn [] "there")]) => ["hi" "there"])
+  (fact "handles nested sequences"
+    (terminate ["hi" ["there," "friend!"]]) => ["hi" "there," "friend!"])
   (fact "cannot be used with functions of >0 arity"
     (terminate :oops) => (throws java.lang.IllegalArgumentException)))
