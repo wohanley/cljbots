@@ -14,7 +14,7 @@
   (cond
     ; Note that the order of these tests is important. A vector, for example, is
     ; a function, but we need to catch it with the first test.
-    (seq-except-string? x) (map terminate (flatten x))
+    (seq-except-string? x) (flatten (map terminate x))
     (ifn? x) (terminate (x))
     :else x))
 
