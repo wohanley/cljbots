@@ -18,6 +18,7 @@
     (ifn? x) (terminate (x))
     :else x))
 
-(def generate-text
+(defn generate-text
   "Generate text starting from a given production."
-  (comp clojure.string/join terminate))
+  [start]
+  (clojure.string/join (terminate start)))
